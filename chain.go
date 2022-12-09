@@ -4,6 +4,7 @@ import (
 	"net/http"
 )
 
+// Chain links middlewares, returning a new middleware
 func Chain(mids ...Middleware) Middleware {
 	return func(handler http.Handler) http.Handler {
 		if len(mids) < 1 {
